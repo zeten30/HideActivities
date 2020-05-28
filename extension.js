@@ -16,15 +16,22 @@
  **/
 
 const Main = imports.ui.main;
+let monitorsChangedEvent = null;
 
-function enable() {
+function hideIndicator() {
     let indicator = Main.panel.statusArea['activities'];
     if(indicator != null) {
         indicator.container.hide();
     }
 }
 
+function enable() {
+    monitorsChangedEvent = Main.layoutManager.connect('monitors-changed', hideIndicator);
+    hideIndicator();
+}
+
 function disable() {
+    Main.layoutManager.disconnect(monitorsChangedEvent);
     let indicator = Main.panel.statusArea['activities'];
     if(indicator != null) {
         indicator.container.show();
