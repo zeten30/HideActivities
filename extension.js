@@ -21,7 +21,7 @@ let monitorsChangedEvent = null;
 function hideIndicator() {
     let indicator = Main.panel.statusArea['activities'];
     if(indicator != null) {
-        indicator.container.hide();
+        indicator.hide();
     }
 }
 
@@ -34,6 +34,6 @@ function disable() {
     Main.layoutManager.disconnect(monitorsChangedEvent);
     let indicator = Main.panel.statusArea['activities'];
     if(indicator != null) {
-        indicator.container.show();
+        indicator.show();
     }
 }
