@@ -1,40 +1,26 @@
 /**
- * GNOME Shell extenstion to hide the Activities button from the status bar.
+ * GNOME Shell extension to hide the Activities button from the status bar.
  *
- * Created by Shay Elkin <shay@shayel.org>
- *
- * Updated by zeten30@gmail.com
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
- * IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
- * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
- * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
- * OTHER DEALINGS IN THE SOFTWARE.
+ * Originally Created by Shay Elkin <shay@shayel.org>
+ * Updated by zeten30@gmail.com up to GNOME version 44
+ * Completely rewritten from scratch for GNOME 45+
  *
  **/
 
-import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import * as Main from "resource:///org/gnome/shell/ui/main.js";
 
-let monitorsChangedEvent = null;
-
-function hideIndicator() {
-    let indicator = Main.panel.statusArea['activities'];
-    if(indicator != null) {
-        indicator.hide();
+export default class HideActivitiesButtonExtension {
+  enable() {
+    // Hide button
+    if (Main.panel.statusArea["activities"] != null) {
+      Main.panel.statusArea["activities"].hide();
     }
-}
+  }
 
-function enable() {
-    monitorsChangedEvent = Main.layoutManager.connect('monitors-changed', hideIndicator);
-    hideIndicator();
-}
-
-function disable() {
-    Main.layoutManager.disconnect(monitorsChangedEvent);
-    let indicator = Main.panel.statusArea['activities'];
-    if(indicator != null) {
-        indicator.show();
+  disable() {
+    // Show button
+    if (Main.panel.statusArea["activities"] != null) {
+      Main.panel.statusArea["activities"].show();
     }
+  }
 }
