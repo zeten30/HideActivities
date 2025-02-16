@@ -1,7 +1,7 @@
 {
   "description": "Hides the Activities button from the status bar (the hot corner and keyboard shortcut keeps working). To disable top left hot corner use 'No Topleft Hot Corner' extension \u2014 https://extensions.gnome.org/extension/118/no-topleft-hot-corner/ .",
   "name": "Hide Activities Button",
-  "shell-version": ["45", "46", "47"],
+  "shell-version": ["45", "46", "47", "48"],
   "url": "https://github.com/zeten30/HideActivities",
   "uuid": "Hide_Activities@shay.shayel.org",
   "version": 45
