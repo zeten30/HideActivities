@@ -26,5 +26,5 @@ clean:
 check:
 	$(MAKE) build
 	$(SYSTEM_PYTHON) -m venv $(VENV)
-	$(VENV)/bin/pip install -U shexli
+	$(VENV)/bin/pip install -U -r requirements.txt
 	$(VENV)/bin/shexli $(BUNDLE_PATH)

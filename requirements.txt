@@ -1,0 +1,3 @@
+shexli
+tree-sitter==0.25.2
+tree-sitter-javascript
