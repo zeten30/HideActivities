@@ -8,6 +8,9 @@ SYSTEM_PYTHON := $(or $(shell which python3), $(shell which python))
 
 release: build
 
+install: build
+	gnome-extensions install --force $(BUNDLE_PATH)
+
 build: clean
 	@mkdir -p $(BUILD_DIR)
 	$(MAKE) package
